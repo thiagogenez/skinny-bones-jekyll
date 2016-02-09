@@ -61,7 +61,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.0)
+  jekyll
   jekyll-gist
   jekyll-sitemap
   octopress (~> 3.0)

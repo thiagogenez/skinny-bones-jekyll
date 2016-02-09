@@ -1,11 +1,12 @@
 # Site wide configuration
 
-title:
-description:
+title: "Thiago Genez"
+description: "Personal website of a Ph.D. student."
 logo: # 120x120 px default image used for Twitter summary card
 teaser: # 400x250 px default teaser image used in image archive grid
 locale: en
-url:
+words_per_minute: 200
+url: 
 
 # Jekyll configuration
 
@@ -13,6 +14,8 @@ sass:
   sass_dir: _sass
   style: compressed
 permalink: /:categories/:title/
+lsi: true
+markdown: kramdown
 kramdown:
   toc_levels: 1..2
 highlighter: rouge
@@ -37,9 +40,12 @@ titlecase: true
 
 # Site owner
 owner:
-  name:
-  email:
-  twitter:
+  name: "Thiago Genez"
+  email: thiagogenez@gmail.com
+  twitter: thiagogenez
+  facebook: thiagogenez
+  instagram: thiagogenez
+  github: thiagogenez
   google:
     ad-client:
     ad-slot:

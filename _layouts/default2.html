@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    {% if page.title %}
+      {% assign seo_title = page.title | append: " • " | append: site.title %}
+    {% endif %}
+
+    {% if seo_title %}
+      {% assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once %}
+    {% endif %}
+
+    {% if page.excerpt %}
+      {% assign seo_description = page.excerpt %}
+    {% elsif page.type == 'tag' %}
+      {% assign seo_description = page.title | prepend: "An archive of "| append: " posts." |  %}
+    {% elsif site.description %}
+      {% assign seo_description = site.description %}
+    {% endif %}
+
+    {% if seo_description %}
+      {% assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once %}
+    {% endif %}
+
+    {% if site.url %}
+      {% assign canonical_url = page.url | replace:'index.html','' | prepend: site.url %}
+    {% endif %}
+
+    {% if seo_title %}
+      <title>{{ seo_title }}</title>
+    {% endif %}
+
+    {% if seo_description %}
+      <meta name="description" content="{{ seo_description }}" />
+    {% endif %}
+
+    {% include open-graph.html %}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ site.url }}/sitemap.xml">
+
+  </body>
+
+</html>
